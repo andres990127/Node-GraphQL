@@ -9,7 +9,10 @@ const resolvers ={
     Query:{
         // Products
         product: product.getProduct,
-        products: product.getProducts
+        products: product.getProducts,
+
+        // Categories
+        category: category.getCategory,
     },
     Mutation:{
         // Products
@@ -23,7 +26,14 @@ const resolvers ={
         // Category
         addCategory: category.addCategory,
     },
-    CategoryNameType
+    
+    // Tipo personalizado para validar nombres
+    CategoryNameType,
+    
+    // El mombre debe ser tal cual como está en el schema.graphql
+    Category: {
+        products: product.getProductsByCategory
+    },
 };
 
 module.exports = resolvers;

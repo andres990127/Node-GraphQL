@@ -9,6 +9,12 @@ const getProducts = async (_, args) =>{
     return await service.find({});
 }
 
+const getProductsByCategory = async (parent) =>{
+    console.log(parent.dataValues.id);
+    const categoryId = parent.dataValues.id;
+    return await service.getByCategory(categoryId);
+}
+
 const addProduct = async (_, { dto }) =>{
     return await service.create(dto);
 }
@@ -27,5 +33,6 @@ module.exports = {
     getProducts,
     addProduct,
     updateProduct,
-    deleteProduct
+    deleteProduct,
+    getProductsByCategory
 }
