@@ -25,7 +25,7 @@ const createApp = async () => {
   });
 
   routerApi(app);
- await useGraphql(app);
+  await useGraphql(app);
 
   app.use(logErrors);
   app.use(ormErrorHandler);
